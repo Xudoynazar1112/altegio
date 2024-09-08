@@ -10,6 +10,7 @@ function Form({ route, method }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const name = method === "login" ? "Login" : "Register";
@@ -22,7 +23,7 @@ function Form({ route, method }) {
     try {
       const requestData = method === "login"
         ? { username, password }
-        : { username, password, email, firstName, lastName };
+        : { username, password, email, firstName, lastName, phoneNumber };
 
       const res = await api.post(route, requestData);
       
@@ -62,6 +63,13 @@ function Form({ route, method }) {
             />
           </div>
           <input
+            type="text"
+            className="mt-3 border-0 rounded-md p-2 w-full"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
             type="email"
             className="mt-3 border-0 rounded-md p-2 w-full"
             placeholder="Email"
@@ -81,6 +89,13 @@ function Form({ route, method }) {
             placeholder="Confirm password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <input
+            type="text"
+            className="mt-3 border-0 rounded-md p-2 w-full"
+            placeholder="Phone number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
           <button
             className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-medium py-2 px-4 rounded-md mt-5 w-full"
@@ -106,9 +121,9 @@ function Form({ route, method }) {
         <p className="font-bold text-center text-xl pb-5">{name}</p>
         <form onSubmit={handleSubmit}>
           <input
-            type="email"
+            type="text"
             className="mt-3 border-0 rounded-md p-2 w-full"
-            placeholder="Email"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />

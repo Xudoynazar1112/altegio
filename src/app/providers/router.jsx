@@ -8,6 +8,7 @@ import MainWrapper from "../../global/MainWrapper";
 import LoginPage from "../../pages/account/LoginPage";
 import RegisterPage from "../../pages/account/RegisterPage";
 import Contract from "../../pages/price/Contract";
+import Profile from "../../pages/profile/Profile";
 
 const Logout = () => {
   localStorage.clear()
@@ -46,6 +47,13 @@ const router = createBrowserRouter(
       element: 
       <ProtectedRoute>
         <Contract />,
+      </ProtectedRoute>
+    },
+    {
+      path: "/profile",
+      element: 
+      <ProtectedRoute>
+        <Profile />,
       </ProtectedRoute>
     },
     {

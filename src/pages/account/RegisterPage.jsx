@@ -2,7 +2,7 @@ import React from "react";
 import Form from "./Form";
 
 const RegisterPage = () => {
-  return <Form route="/api/user/register/" method='register' />;
+  return <Form route="/api/barber/register/" method='register' />;
 };
 
 export default RegisterPage;
