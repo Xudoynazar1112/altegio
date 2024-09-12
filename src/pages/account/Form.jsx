@@ -22,17 +22,19 @@ function Form({ route, method }) {
     
     try {
       const requestData = method === "login"
-        ? { username, password }
+        ? { email, password }
         : { username, password, email, firstName, lastName, phoneNumber };
 
       const res = await api.post(route, requestData);
+      console.log(res);
+      
       
       if (method === "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        navigate("/");
-      } else {
         navigate("/login");
+      } else {
+        navigate("/register");
       }
     } catch (error) {
       alert(error);

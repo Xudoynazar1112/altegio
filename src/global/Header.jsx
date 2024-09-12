@@ -12,7 +12,7 @@ const Header = () => {
     if (token) {
       setIsAuthenticated(true); // Set state as authenticated if token exists
     } else {
-      navigate('/login'); // Redirect to login if not authenticated
+      navigate('/'); // Redirect to login if not authenticated
     }
   }, [navigate]);
 
